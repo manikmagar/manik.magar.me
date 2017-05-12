@@ -20,6 +20,10 @@ cp -R ../../content .
 echo "Copy jbake.properties to current template"
 cp ../../jbake.properties .
 
+echo "Copy content from root to template"
+pwd
+cp -Rf ../../assets .
+
 jbake -b
 
 rm -rf ../../docs/*
