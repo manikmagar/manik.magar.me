@@ -14,18 +14,20 @@ git pull origin master
 
 rm -rf content
 echo "Copy content from root to template"
-pwd
 cp -R ../../content .
 
 echo "Copy jbake.properties to current template"
 cp ../../jbake.properties .
 
-echo "Copy content from root to template"
-pwd
+echo "Copy assets from root to template"
 cp -Rf ../../assets .
 
 jbake -b
 
 rm -rf ../../docs/*
 
+echo "Copy Output to docs"
 cp -R output/* ../../docs/
+
+echo "Copy CNAME"
+cp ../../CNAME ../../docs/
