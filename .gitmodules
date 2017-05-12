@@ -1,0 +1,3 @@
+[submodule "templates/jbake-future-imperfect-template"]
+	path = templates/jbake-future-imperfect-template
+	url = https://github.com/manikmagar/jbake-future-imperfect-template.git
