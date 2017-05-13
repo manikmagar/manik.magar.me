@@ -6,13 +6,13 @@
     <atom:link href="https://manik.magar.me/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sat, 13 May 2017 00:30:38 -0400</pubDate>
-    <lastBuildDate>Sat, 13 May 2017 00:30:38 -0400</lastBuildDate>
+    <pubDate>Sat, 13 May 2017 18:51:42 +0000</pubDate>
+    <lastBuildDate>Sat, 13 May 2017 18:51:42 +0000</lastBuildDate>
 
     <item>
       <title>Welcome!</title>
       <link>https://manik.magar.me/blog/welcome_here.html</link>
-      <pubDate>Thu, 11 May 2017 00:00:00 -0400</pubDate>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/welcome_here.html</guid>
       	<description>
 	&lt;p&gt;Welcome to my blog here.&lt;/p&gt;
