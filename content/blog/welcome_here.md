@@ -6,4 +6,4 @@ status=published
 author=Manik Magar
 ~~~~~~
 
-Welcome to my blog here.
+Welcome to my blog here. This blog is baked with JBake.
