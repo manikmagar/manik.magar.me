@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/manikmagar
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://manik.magar.me
+  * I am manikmagar (https://keybase.io/manikmagar) on keybase.
+  * I have a public key with fingerprint 84F2 FF14 69C1 CE37 1161  1024 89B3 3E4F 037E 6B2E
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101c459e1fe1f2c281c1c7250a23d9bdbf5d64a149096e2477283a9caaa04a0464f0a",
+            "fingerprint": "84f2ff1469c1ce371161102489b33e4f037e6b2e",
+            "host": "keybase.io",
+            "key_id": "89b33e4f037e6b2e",
+            "kid": "0101c459e1fe1f2c281c1c7250a23d9bdbf5d64a149096e2477283a9caaa04a0464f0a",
+            "uid": "6e3f8e812624f92d551c28fe6dc98419",
+            "username": "manikmagar"
+        },
+        "service": {
+            "hostname": "manik.magar.me",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1475541993,
+    "expire_in": 157680000,
+    "prev": "abdf12094a26af7a54bf791574f00f4f8b2a00633ee08ab3475e5eadbceca2a1",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.58
+Comment: https://keybase.io/crypto
+
+yMInAnicrZJbSBVBHMbPMbt4MDUlIS2klZ4Uz87ed80HC7pCRaZRiKfZ3dnjou6e
+ztljmlkEecsiFYPIyCKkB3tQMUNKTLNUEoukkMwKumClBYqRCtasFPTQY8PAMDO/
+75vv/2f6Vi9zuJyjo+GTc5nxX52PexqCjoPTC59KCNlUiwmphMhDSwvKV1HA8uTp
+KiERJCCBwrAiAhqelEIJQAEKT7EkpGhVlFVZY1WOgYARSZFDFMPzlEBDUYEQkgye
+HKORkEgmNN3wIr/PrxsWthUYjdI0wHAidkM0DwAHAEkxgijTNMISmkecTCEszDUD
+tgKHk2EApegmPsMbz1K8f/D/OXdwyY5DtCYgAVAcxWgipbIswJYa4lRFFBgg2mAA
++Q1YgDBdAA09rwB6oZ8oTSbweaGuILu1di1/MylLUEqBndvnNy1TMfPxXa5l+QKS
+rbWKfTZ8DMme3zYeWTdU3EusKET+gG4ahAQwqVi67QsYnmVxIJFOJlCRT/cjj24T
+LM8JJB72O6gQW0JZ1QBFigykOKjxkGVkjRcxh+smNUYTZAqSJIe7i0gByjT2RSyC
+qqwgBVIQEHZhRw2TkBgcE3qxZUD3GtAK+hFR2ns/O9ThdDlWLA+x/5jDFRb15+dN
+TK386Uuqqa5ue9RRWbbz4ZG+rK49Y3Xc3UPHQ9t9t3qrLi92lkcMDbhiG4D0jBgZ
+aNk82L2mqXFwPObAXH3aeu/4/pie+W/ZZnTFlzNz0S0RVW5LLkuajHF31kqwZ13H
+XufnE61j71vSt75K2BiW8zyixXUvYW1I7Z1rVc4XUf3JdQkZzU/AzS3uzqnbZPjE
+2Zp0+fXIDgv2v3mwbybqXNzg7q7qpJJT7l459zqKJzd8aM/Z1Bh2vsn43p0YWZYT
+/DgyfDJByqm8utBRdCVV4DPm0z3jL91PL8ZmHp6ZrihWFvPbdpUPXwo2F77b1job
+mTh04fSNtO1vV5X9mO2WsuriUut/AQp1SMM=
+=Lm09
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/manikmagar
+
+==================================================================
