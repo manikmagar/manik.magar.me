@@ -6,16 +6,170 @@
     <atom:link href="https://manik.magar.me/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sun, 14 May 2017 05:10:48 +0000</pubDate>
-    <lastBuildDate>Sun, 14 May 2017 05:10:48 +0000</lastBuildDate>
+    <pubDate>Mon, 15 May 2017 00:36:39 +0000</pubDate>
+    <lastBuildDate>Mon, 15 May 2017 00:36:39 +0000</lastBuildDate>
 
     <item>
-      <title>Welcome!</title>
-      <link>https://manik.magar.me/blog/welcome_here.html</link>
-      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">blog/welcome_here.html</guid>
+      <title>Baking static blog with JBake</title>
+      <link>https://manik.magar.me/blog/2017/05/baking_static_blog_with_jbake.html</link>
+      <pubDate>Sun, 14 May 2017 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">blog/2017/05/baking_static_blog_with_jbake.html</guid>
       	<description>
-	&lt;p&gt;Welcome to my blog here. This blog is baked with JBake.&lt;/p&gt;
+	&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Static site is a new buzz topic that you might hear every where these days.
+Many blogs are simple static content and less frequently published. So having a static site
+compared to traditional CMS may make things simple and fast.
+There are many static site generators available in market, at least one per
+programming language like (ruby, java, php, go, groovy etc).
+You can choose anyone based on your comfort and liking.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Sometime back, I decided to switch my sites from hosted wordpress to static sites.
+For this task, I chose &lt;a href=&quot;http://jbake.org/&quot; target=&quot;_blank&quot;&gt;JBake&lt;/a&gt; static site generator which
+is written in java. It is very light and simple to use. In this post, we will
+see how to build a static blog with JBake.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_installing_jbake&quot;&gt;Installing JBake&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There are &lt;a href=&quot;http://jbake.org/download.html&quot; target=&quot;_blank&quot;&gt;different ways&lt;/a&gt; to install JBake. I think the
+easiest way is to use &lt;a href=&quot;https://sdkman.io&quot; target=&quot;_blank&quot;&gt;SDKMAN&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;dlist&quot;&gt;
+&lt;dl&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;Run below commands in terminal to install JBake&lt;/dt&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;div id=&quot;source&quot; class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;curl -s &quot;https://get.sdkman.io&quot; | bash`  &lt;b class=&quot;conum&quot;&gt;(1)&lt;/b&gt;
+sdk version
+sdk install jbake
+sdk current jbake&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;colist arabic&quot;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Refer: &lt;a href=&quot;http://sdkman.io/install.html&quot; target=&quot;_blank&quot;&gt;SDKMAN Install&lt;/a&gt; for more details&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_initializing_the_site&quot;&gt;Initializing the site&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Once you have JBake installed, you would want to get any existing template for your jbake site. You can choose one from &lt;a href=&quot;http://jbake.org/docs/2.5.1/#initialisation_command&quot;&gt;example templates&lt;/a&gt; to initialize your site. While baking my this site, I have a published a new freemarker template - &lt;a href=&quot;https://github.com/manikmagar/jbake-future-imperfect-template&quot;&gt;jbake-future-imperfect-template&lt;/a&gt;.
+Let&amp;#8217;s create a site with this template.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you have git installed on your system then you can clone the template repo into your local or &lt;a href=&quot;https://github.com/manikmagar/jbake-future-imperfect-template/releases/tag/1.0.0&quot;&gt;download&lt;/a&gt; the current relesed package.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;dlist&quot;&gt;
+&lt;dl&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;To clone the repo, run below commands in terminal&lt;/dt&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;div id=&quot;source&quot; class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;mkdir ~/awesome-jbake &amp;amp;&amp;amp; cd ~/awesome-jbake
+git clone https://github.com/manikmagar/jbake-future-imperfect-template.git .
+jbake -b &lt;b class=&quot;conum&quot;&gt;(1)&lt;/b&gt;
+jbake -s &lt;b class=&quot;conum&quot;&gt;(2)&lt;/b&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;colist arabic&quot;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-b&lt;/code&gt;: &lt;a href=&quot;http://jbake.org/docs/2.5.1/#bake&quot; target=&quot;_blank&quot;&gt;bakes&lt;/a&gt; the content and convert it into html files. It generates site in &lt;code&gt;output&lt;/code&gt; folder.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-s&lt;/code&gt;: &lt;a href=&quot;http://jbake.org/docs/2.5.1/#preview&quot; target=&quot;_blank&quot;&gt;Serves&lt;/a&gt; generated content site&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Open any web browser, your site should be accessible at &lt;a href=&quot;http://localhost:8820&quot; class=&quot;bare&quot;&gt;http://localhost:8820&lt;/a&gt;. You should see something like below in your browser-&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://github.com/manikmagar/jbake-future-imperfect-template/blob/master/jbake_future_imperfect_blog.png?raw=true&quot; alt=&quot;JBake Future Imperfect&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_content_authoring&quot;&gt;Content Authoring&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Now you have you basic site up and running, let&amp;#8217;s add some content to it.
+Two folder&amp;#8217;s in our template are important for creating content -&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;content: This is where you would place all your blog posts, pages or any other content.
+JBake supports writing posts in raw HTML format, Github Markdown or AsciiDoc format.
+You can choose any one or have mixed files too. There are some sample posts included with template, take a look at those.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;assets: This folder should contain all static resources like images, js, css files related to blog/template.
+For post related images, you can create the structure similar to what you would
+create in content folder for your posts.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_content_editing&quot;&gt;Content Editing&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There are many tools available to edit your content. Some of them are -&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;olist arabic&quot;&gt;
+&lt;ol class=&quot;arabic&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://atom.io&quot; target=&quot;_blank&quot;&gt;Atom&lt;/a&gt;: Atom is feature-rich text editor with has lots of plugins to make markdown, html or &lt;a href=&quot;https://atom.io/users/asciidoctor&quot; target=&quot;_blank&quot;&gt;asciidoc&lt;/a&gt; writing easy.
+I liked this for authoring asciidoc content. With &lt;a href=&quot;https://atom.io/packages/asciidoc-image-helper&quot;&gt;asciidoc-image-helper&lt;/a&gt; package, you can just paste any image data
+and it will save that as file with reference in the same folder. Although you would need to move this file to assets folder, I found it very handy. I use this for creating content asciidoc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://prose.io/#about&quot; target=&quot;_blank&quot;&gt;prose.io&lt;/a&gt;: If you are going to host your site/content on github and write in markdown, you may want to look at this online content authoring tool. It is tightly coupled with github and markdown though.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://typora.io/&quot; target=&quot;_blank&quot;&gt;Typora&lt;/a&gt;: Beautiful, simple, clean and distraction-free standalone application that makes it easy to create markdown-formatted content. I use this for creating Markdown content.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;More on &lt;a href=&quot;https://headlesscms.org/&quot; target=&quot;_blank&quot;&gt;Headless CMS&lt;/a&gt;: There are many CMS that helps to author content for static sites. Headlesscms.org has a curated list of such CMS applications.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_rebuilding_site&quot;&gt;Rebuilding site&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;When you add/modify the content of your site, you need to bake it again. If your already serving jbake site with &lt;code&gt;jbake -s&lt;/code&gt; then your site should rebuild as soon as you modify your content files. This is because JBake is watching your content folder and it detects the changes to rebuild the site.
+Otherwise, you can always run &lt;code&gt;jbake -b -s&lt;/code&gt; to build and server the site.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;JBake makes it easy to ramp up a static blog site. In less than 2 mminutes, our static template site was up and running.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So keep baking and editing!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 	</description>
     </item>
 
