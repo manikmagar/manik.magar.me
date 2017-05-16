@@ -1,0 +1,150 @@
+= Continuous Deployment of JBake Site to Github with CircleCI
+Manik Magar
+2017-05-15
+:jbake-status: published
+:jbake-type: post
+:jbake-tags: jbake, ci-cd
+
+In this https://manik.magar.me/blog/2017/05/baking_static_blog_with_jbake.html[previous post^]
+we saw how we can create a static blog using JBake static site generator. Once you have your site ready,
+next obvious question will be where to host the site? Off course there are many hosting
+options available. One of the easy and free way to host static pages is with Github Pages.
+
+In this post, we will go over::
+
+. Publish our JBake site to Github Pages.
+. Achieve continuous deployment of our site using CircleCI.
+
+== Publish JBake site to Github Pages
+We will use the same template site we built in our https://manik.magar.me/blog/2017/05/baking_static_blog_with_jbake.html[previous post^]
+and publish a site called 'awesomejbake'.
+
+
+=== Step 1: Create Github Repository
+Go to https://github.com/new[Github^] and create new repository with name awesomebake as shown in below sample screenshot.
+To keep it simple, keep "Initialize this repository with a README" option checked.
+
+image::/blog/2017/05/images/jbake_with_continuous_deployment_to_github-create_repo.png[]
+
+
+== Step 2: Checkout and Bake Site in local
+We will use git command line client, if you don't have git client installed,
+read https://git-scm.com/book/en/v2/Getting-Started-Installing-Git[this^] for how to install it.
+
+Follow below steps to setup local site:
+[[source,shell]]
+----
+mkdir ~/awesomejbake
+cd ~/awesomejbake
+git clone https://github.com/username/awesomejbake.git
+----
+_Dont forget to replace `username` with your Github username._
+
+Now, copy the content of ~/awesome-jbake that we created in previous post and
+paste content in ~/awesomejbake directory. So, we have our template site
+in repo directory.
+
+Github can either publish site from the root of the repo or a folder named `docs`
+in the root of the repo. As we will be having other template files at the root of
+the repo, let's choose to use `docs` folder to publish our site.
+
+To see our site in local, run this command while in username.github.io folder -
+
+`jbake -b . ./docs`
+
+This command will bake our jbake site and generate the output in `docs` instead
+of default `output` folder.
+
+To preview out site, run below command to serve it from `docs` folder -
+
+`jbake -s ./docs`
+
+So, we have our site ready to push to Github.
+
+=== Push site to Github
+To push our site to repo, follow below commands -
+[[source,shell]]
+----
+git add content assets templates jbake.properties docs
+git commit -m "Upload awesome site"
+git push
+----
+
+=== Go Live with Github pages
+Go to Github Settings page for your repo - https://github.com/{username}/awesomejbake/settings
+and scroll down to Github Pages section. Under Source section, select 'masterbranch /docs folder' and click save.
+
+You should see your site url in header - http://{username}.github.io/awesomejbake.
+You can access your site at that URL. *We are LIVE!*
+
+image::/blog/2017/05/images/jbake_with_continuous_deployment_to_github-setup-pages.png[]
+
+
+== Continuous Deployment to Github Using CircleCI
+We have our site live at Github. We can now keep adding new content
+in our ~/awesomejbake/content folder. Once we add content, we must bake our site
+again and push the latest content and generated /docs to github. We can either bake locally or
+go for online continuous deployment.
+
+== Option 1: Local baking and Publish
+Bake your site locally and commit/push baked content to github. Everytime you add/modify
+content, you will follow part *Step 2* above to bake and push the site. This option
+ties you to your local machine to publish your site.
+Remember we saw https://manik.magar.me/blog/2017/05/baking_static_blog_with_jbake.html[few]
+options to author your content online. You may not be able to take full advantage of online editing with this option.
+
+== Option 2: Continuous Deployment via Online CI
+Another option is to use Continuous Integration services like https://circleci.com/[CircleCI^], https://travis-ci.org/[Travis-CI^] etc.
+
+*Step 1:* Login/Sign up to https://circleci.com/add-projects[CircleCI^] and build your project.
+
+image::/blog/2017/05/images/jbake_with_continuous_deployment_to_github-build-circleci.png[]
+
+
+*Step 2:* Add a `circle.yml` file in ~/awesomejbake/. Add below content to this file-
+
+[[source,yaml]]
+----
+machine:
+  pre:
+    - git config --global user.name "CircleCI"
+    - git config --global user.email "circleci@circleci.com"
+
+dependencies:
+  pre:
+    - curl -s "https://get.sdkman.io" | bash
+    - sdk install jbake 2.5.1
+
+test:
+  override:
+    - sdk version
+    - sdk current jbake
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - rm -rf docs/*
+      - jbake -b . ./docs
+      - git add docs
+      - git commit --message "Generated site on $(date) [ci skip]"
+      - git push origin master
+----
+
+*Step 3:* Then push this file to github-
+[[source,shell]]
+----
+git circle.yml
+git commit -m "Added circleci"
+git push
+----
+
+Next time when you add a content to your github repository, CircleCI should start the build and deploy new site back to docs folder.
+
+=== Permissions for CircleCI to Commit to your repo
+For git push to work from circle ci, you must add deploy key to circleci with https://circleci.com/docs/1.0/adding-read-write-deployment-key/[these instructions^].
+
+== Conclusion
+We built our JBake site and hosted it on Github Pages. Also, we saw how we can publish out site to github.
+
+Hope this helps you to bake your own site. Keep Baking!

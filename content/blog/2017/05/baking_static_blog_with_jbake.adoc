@@ -4,7 +4,7 @@ Manik Magar
 :jbake-status: published
 :jbake-type: post
 :jbake-tags: jbake
-:jbake-featuredimage: img/blog/2017/05/images/baking_static_blog_with_jbake-44ec4.png
+:jbake-featuredimage: images/baking_static_blog_with_jbake-44ec4.png
 :jbake-featuredalt: JBake - A Java based Static site generator
 :jbake-description: JBake is a very simple java based static site generator which makes it easy to generate static blogs.
 
