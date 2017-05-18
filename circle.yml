@@ -20,6 +20,7 @@ deployment:
       - rm -rf docs/*
       - jbake -b . ./docs
       - cp CNAME docs/
+      - cp keybase.txt docs/
       - git add docs
       - git commit --message "Generated site on $(date) [ci skip]"
       - git push origin master
