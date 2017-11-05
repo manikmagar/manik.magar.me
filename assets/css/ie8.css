@@ -1,72 +1,36 @@
 /*
-	Future Imperfect by HTML5 UP
-	html5up.net | @n33co
+	Identity by HTML5 UP
+	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* Button */
+/* List */
 
-	input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	button,
-	.button {
-		border: solid 1px #dedede;
+	ul.icons li a {
+		-ms-behavior: url("assets/js/PIE.htc");
 	}
 
-/* Form */
-
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	input[type="tel"],
-	select,
-	textarea {
-		border: solid 1px #dedede;
-	}
-
-/* Post */
-
-	.post {
-		border: solid 1px #dedede;
-	}
-
-		.post > header {
-			border-bottom: solid 1px #dedede;
+		ul.icons li a:before {
+			text-align: center;
+			font-size: 26px;
 		}
 
-/* Mini Post */
+/* Main */
 
-	.mini-post {
-		border: solid 1px #dedede;
+	#main {
+		-ms-behavior: url("assets/js/PIE.htc");
 	}
 
-/* Header */
-
-	#header {
-		border-bottom: solid 1px #dedede;
-	}
-
-		#header .links {
-			border-left: solid 1px #dedede;
+		#main .avatar img {
+			-ms-behavior: url("assets/js/PIE.htc");
 		}
 
-		#header .main ul li {
-			border-left: solid 1px #dedede;
-		}
+/* Footer */
 
-/* Sidebar */
-
-	#sidebar > * {
-		border-top: solid 1px #dedede;
+	#footer {
+		color: #fff;
 	}
 
-/* Menu */
-
-	#menu {
-		border-left: solid 1px #dedede;
-	}
-
-		#menu > * {
-			border-top: solid 1px #dedede;
+		#footer .copyright li {
+			border-left: solid 1px #fff;
 		}
